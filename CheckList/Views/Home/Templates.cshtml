@@ -1,0 +1,15 @@
+﻿@model TemplatesListViewModel
+
+<h1 style="text-decoration: underline;">Templates for Project: <span style="font-style: italic;">@ViewBag.ProjectName</span></h1>
+<table>
+    <tr>
+        <th style="text-align: left">Project name</th>
+    </tr>
+    @foreach (var template in Model.Templates)
+    {
+
+        <tr>
+            <td>@template.TemplateName</td>
+        </tr>
+    }
+</table>

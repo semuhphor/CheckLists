@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scaled=1" />
+    <title>Check List</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" />
+    <!-- link href="~/Content/site.css" rel="stylesheet" / -->
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body width="80%">
+   <div style="border: 4px solid red; padding: 20px;">
+     <img class="img-responsive img-center" alt="CheckLists'" src="~/Images/check-mark1.jpg" height="60px" border="2px;" style="float: left; margin-right: 15px;" />
+     <span style="font-size: xx-large; font-weight: bold; font-style: italic; text">CheckLists</span>
+     <br />
+       <span style="font-size: small; font-style: italic; text">Make sure you are doing it right!</span>
+   </div>
+   <br/>
+   <div>
+       @RenderBody()
+    </div>
+    <p><a asp-controller="Home" asp-action="Index">Back to projects</a></p>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>vue tutorial</title>
+    <script src="./js/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  </head>
+  <body>
+    <div id="app">
+      <div v-for="(item, index) in checkList">
+        <div v-if="item.type === 'T'">
+            <span style="font-weight:bold">{{ item.desc }}</span>
+        </div>
+        <div v-else-if="item.type === 'C'">
+          <label v-on:click="changeCheck(this, index); flarp=JSON.stringify(checkList) +' '+ this.style;" :style="checkStyle(index)" >{{item.desc}}</label>
+        </div>
+      </div>
+      <textarea id='flarp' v-model="flarp"></textarea>
+    </div>
+    <button onclick="myVue.flarp=JSON.stringify(myVue.checkList) +' '+ myVue.checkStyle(3);">Show</button>
+    <script>
+      var myVue = new Vue({
+        el: '#app',
+        data: {
+          checkList: [
+            { "type":"T", "desc":"Muffler" },
+            { "type":"C", "desc":"Removed old muffler", "checked":"" },
+            { "type":"C", "desc":"Discard old muffler", "checked":"" },
+            { "type":"C", "desc":"Install new muffler", "checked":"true" }
+          ],
+          flarp: ""
+        },
+        methods: {
+          checkStyle : function(index) {
+            if (this.checkList[index].checked == 'true'){
+              return "background-color:#99C68E";
+            }
+            else{
+              return "";
+            }
+          },
+          changeCheck : function(label, index){
+            this.checkList[index].checked = this.checkList[index].checked == "true" ? "false" : "true";
+            label.style = this.checkStyle(index);
+          }
+        }
+      });
+    </script>
+  <br/><br/>
+  </body>
+</html>
+
+
