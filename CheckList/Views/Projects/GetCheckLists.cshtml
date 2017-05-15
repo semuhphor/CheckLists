@@ -1,0 +1,19 @@
+﻿@model ChkListListViewModel
+
+<h1 style="text-decoration: underline;">CheckLists for Project: <span style="font-style: italic;">@ViewBag.ProjectName</span></h1>
+<table>
+    <tr>
+        <th style="text-align: left">Project name</th>
+        <th style="text-align: left">Created</th>
+        <th style="text-align: left">Updated</th>
+    </tr>
+    @foreach (var chkList in Model.ChkLists)
+    {
+
+        <tr>
+            <td>@chkList.ChkListName</td>
+            <td>@chkList.CreatedAt.ToString("d")</td>
+            <td>@chkList.UpdatedAt.ToString("d")</td>
+        </tr>
+    }
+</table>

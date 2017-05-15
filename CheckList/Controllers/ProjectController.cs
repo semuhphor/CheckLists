@@ -11,11 +11,11 @@ using System.Linq;
 
 namespace CheckList.Controllers
 {
-    public class HomeController : Controller
+    public class ProjectsController : Controller
     {
         private readonly IProjectRepository _projectRepository;
 
-        public HomeController(IProjectRepository projectRepository)
+        public ProjectsController(IProjectRepository projectRepository)
         {
             _projectRepository = projectRepository;
         }
@@ -29,8 +29,8 @@ namespace CheckList.Controllers
             return View(projectListViewModel);
         }
 
-        // GET: /<controller>/Templates/Id
-        public ViewResult Templates(int? id)
+        // GET: /<controller>/GetTemplates/Id
+        public ViewResult GetTemplates(int? id)
         {
             TemplatesListViewModel templatesListViewModel = new TemplatesListViewModel();
             Project project = _projectRepository.Load(_projectRepository.Projects.Where(p => p.ProjectId == id).FirstOrDefault());
@@ -40,8 +40,8 @@ namespace CheckList.Controllers
             return View(templatesListViewModel);
         }
 
-        // GET: /<controller>/CheckLists/Id
-        public ViewResult CheckLists(int? id)
+        // GET: /<controller>/GetCheckLists/Id
+        public ViewResult GetCheckLists(int? id)
         {
             ChkListListViewModel chkListViewModel = new ChkListListViewModel();
             Project project = _projectRepository.Load(_projectRepository.Projects.Where(p => p.ProjectId == id).FirstOrDefault());

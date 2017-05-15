@@ -11,6 +11,8 @@ namespace CheckList.Models
         public int ProjectId { get; set; }
         public string TemplateName { get; set; }
         public string Json { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
 
         public virtual Project Project { get; set; }
     }

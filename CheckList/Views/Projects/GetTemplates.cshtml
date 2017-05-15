@@ -4,12 +4,17 @@
 <table>
     <tr>
         <th style="text-align: left">Project name</th>
+        <th style="text-align: left">Created</th>
+        <th style="text-align: left">Updated</th>
     </tr>
     @foreach (var template in Model.Templates)
     {
 
         <tr>
             <td>@template.TemplateName</td>
+            <td>@template.CreatedAt.ToString("d")</td>
+            <td>@template.UpdatedAt.ToString("d")</td>
+            <td>@Html.ActionLink("New Checklist", "New", "Checklists", new{ templateId = template.TemplateId })</td>
         </tr>
     }
 </table>

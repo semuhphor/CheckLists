@@ -39,9 +39,13 @@ namespace CheckList
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
-
-            DBInitialiser.Seed(app);
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Projects}/{action=Index}/{id?}");
+             });
+             DBInitialiser.Seed(app);
         }
     }
 }

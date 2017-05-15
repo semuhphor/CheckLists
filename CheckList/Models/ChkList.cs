@@ -13,6 +13,9 @@ namespace CheckList.Models
         public string FromTemplate { get; set; }
         public string Json { get; set; }
 
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+
         public virtual Project Project { get; set; }
     }
 }

@@ -1,0 +1,86 @@
+CheckLisst
+
+1. Create projects
+    - Can only delete empty projects
+    
+2. Template checklists (json)
+    - Choose Project
+    - Upload new
+    - Display existing
+    - Update (upload & replace)
+    - Delete
+ 
+3. Create a Copy    
+    - Choose Template
+    - Load & display
+    - Check/uncheck items
+    - Saves every check change
+    - Delete a copy
+    
+Databaseee
+    Projects table
+        Project id
+        Project name
+        
+     Template table 
+        Template Id
+        Project Id
+        Template name
+        Json
+        
+     List
+        List Id
+        List Name
+        Template Name
+        Json
+        
+  
+Json:
+    Entry:
+    
+        { "type":"[T|1|2|3|N|C]" "desc":"information", "list": [ entry, entry, ...]}
+            T: Top - this is the name of the list.
+            1: Header 1
+            2: Header 2
+            3: Header 3
+            N: Numbered list
+            C: Checklist entry - gets checkbox
+          
+     Example:
+        { 
+            "type":"T", 
+            "desc":"ThingsToDo", 
+            "list":
+                [
+                    { "type":"1", "desc":"Shopping", list: 
+                        [
+                            { "type":"2", "desc":"Safeway", list:
+                                [
+                                    { "type":"C" "desc":"eggs" },
+                                    { "type":"C" "desc":"milk" },
+                                    { "type":"C" "desc":"sour cream" },
+                                ]
+                            },
+                            { "type":"2", "desc":"CVS", list:
+                                [
+                                    { "type":"C" "desc":"baby powder" },
+                                    { "type":"C" "desc":"iodine" },
+                                ]
+                            },
+                        ]
+                    },
+                    { "type":"1", "desc":"Car Repair", list: 
+                        [
+                            { "type":"2", "desc":"Muffler", list:
+                                [
+                                    { "type":"C" "desc":"Removed old muffler" },
+                                    { "type":"C" "desc":"Discard old muffler" },
+                                    { "type":"C" "desc":"Install new muffler" },
+                                ]
+                            },
+                        ]
+                    },
+                ]
+         }
+            
+            

@@ -8,9 +8,10 @@ using CheckList.Models;
 namespace CheckList.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170515193738_Dates")]
+    partial class Dates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -48,10 +49,6 @@ namespace CheckList.Migrations
                 {
                     b.Property<int>("ProjectId")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("ProjectName");
 

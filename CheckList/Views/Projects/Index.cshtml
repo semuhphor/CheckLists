@@ -1,0 +1,20 @@
+﻿@model ProjectsListViewModel
+
+    <h1 style="text-decoration: underline;">Projects</h1>
+    <table>
+    <tr>
+        <th style="text-align: left">Project name</th>
+        <th style="text-align: left">Created</th>
+
+    </tr>
+    @foreach (var project in Model.Projects)
+    {
+
+        <tr>
+            <td>@project.ProjectName</td>
+            <td>@project.CreatedAt.ToString("d")</td>
+            <td width="10%"><a asp-action="GetCheckLists" asp-route-id="@project.ProjectId">CheckLists</a></td>
+            <td width="10%"><a asp-action="GetTemplates" asp-route-id="@project.ProjectId">Templates</a></td>
+        </tr>
+    }
+    </table>
